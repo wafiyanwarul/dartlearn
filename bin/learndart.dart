@@ -11,14 +11,18 @@ import 'dart:io';
 void main() {
   print("Hello World!");
 
+  //this part is to try use method in "consFinal" class --------------------
+  consFinal.consTest();
+  consFinal cF = new consFinal();
+  cF.finalTest();
+
   //this part is to try use method in "paramScope" class --------------------
-  var myParamScope = paramScope(); // Create an instance of the class
-  var price = 300000;
-  var discount = myParamScope.checkDiscount(price); // Call the method on the instance
-  print('The price is $price');
-  print('The discount is: $discount');
-  print('You need to pay ${price - discount}');
-}
+  // var myParamScope = paramScope(); // Create an instance of the class
+  // var price = 300000;
+  // var discount = myParamScope.checkDiscount(price); // Call the method on the instance
+  // print('The price is $price');
+  // print('The discount is: $discount');
+  // print('You need to pay ${price - discount}');
 
   //this part is to try use method in "funcTest" class ------------------------------
   // funcTest fT = new funcTest();
@@ -87,7 +91,34 @@ void main() {
   //
   // print("\nThis is modulus: ");
   // mo.modulus(324, 20);
+}
 
+const num pi = 3.14; //this value can't be reassigned
+/*  Cons bersifat compile-time constants, it means that the value must be known before
+    before the program runs. But final, the value can be reassigned when the runtimme
+    or when the application running*/
+
+// "immutable variable" variable that the value can't be changed
+
+class consFinal {
+  static void consTest() {
+    // const pi = 3.14; //automatically double, but we can still declare explicit below
+    var radius = 10;
+    print(
+        'Circle area with the radius $radius = ${calculateCircleArea(radius)}');
+  }
+
+  static num calculateCircleArea(num radius) => pi * radius * radius;
+
+  void finalTest() {
+    final firstName = "Achmad";
+    final lastName = "Yusni";
+
+    //lastName = 'Angga';       // tidak bisa dilakukan pengubahan nilai
+
+    print('Hello $firstName $lastName');
+  }
+}
 
 class paramScope {
   num checkDiscount(num price) {
@@ -277,7 +308,7 @@ class profile {
     address = stdin.readLineSync()!;
 
     fullProfile =
-    "\nHello $name \nYou're $age years old \nYour address is $address";
+        "\nHello $name \nYou're $age years old \nYour address is $address";
     print(fullProfile);
   }
 }
