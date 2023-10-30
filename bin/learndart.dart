@@ -11,39 +11,64 @@ import 'dart:io';
 void main() {
   print("Hello World!");
 
-  //this part is to try use method in "funcTest" class
-  funcTest fT = new funcTest();
-  fT.greeting("Wafiy Anwarul Hikam", 2003);
+  //this part is to try use method in "paramScope" class --------------------
+  var myParamScope = paramScope(); // Create an instance of the class
+  var price = 300000;
+  var discount = myParamScope.checkDiscount(price); // Call the method on the instance
+  print('The price is $price');
+  print('The discount is: $discount');
+  print('You need to pay ${price - discount}');
+}
 
-  var x1, x2;
-  x1 = 205;
-  x2 = 295;
-  var test = fT.averageTest(x1, x2);
-  print('The average of $x1 and $x2 is $test');
+  //this part is to try use method in "funcTest" class ------------------------------
+  // funcTest fT = new funcTest();
+  // fT.greeting("Wafiy Anwarul Hikam", 2003);
+  //
+  // var x1, x2;
+  // x1 = 205;
+  // x2 = 295;
+  // var test = fT.averageTest(x1, x2);
+  // print('The average of $x1 and $x2 is $test');
 
-  fT.greetNewUser('Anwarul Hikam', 19, false);
+  // IF YOU'RE NOT USE THE OPTIONAL PARAMETER, USE THIS BELOW
+  // fT.greetNewUser('Anwarul Hikam', 19, false);
+
+  // IF YOU USE THE OPTIONAL PARAMETER, YOU CAN USE THE METHOD CALL BELOW
+  // YOU CAN SEE THAT, HERE WE'RE NOT DEFINE ALL OF THE PARAMETER'S VALUES
+  // BUT IT'S STILL WORKS
+  // fT.greetNewUser('Anwarul Hikam', 19);
+  // fT.greetNewUser('Anwarul Hikam');
+  // fT.greetNewUser();
+  // WE CAN ALSO GIVE NULL TO PARAMETERS IF WE ONLY NEED THE LAST PARAMETER
+  // fT.greetNewUser(null, null, true);
+
+  // part NAMED OPTIONAL PARAMATERS
+  // fT.greetNewUser(age: 17);
+
+  // PART REQUIRED PARAMTER
+  // fT.greetNewUser(name: 'Muhammad'); //the mandatory parameter is name
 
   //this part is to try use method in "convertTemperature" class, in file tempConvert
   // tempConvert.fahrenheitToCelcius();
   // tempConvert.celciusToFahrenheit();
 
-  //this part is to try use method in "conditionTest" class
+  //this part is to try use method in "conditionTest" class ------------------------------
   // conditionTest cT = new conditionTest();
   // cT.ifelseCondition();
   // cT.useTryCatch();
 
-  //this part is to try use method in "convertType" class
+  //this part is to try use method in "convertType" class --------------------
   // dataType ct = new dataType();
   // ct.datatypeCheck();
   // ct.datatypeConversion();
   // ct.eString();
   // ct.cBoolean();
 
-  //this part is to try use method in "profile" class
+  //this part is to try use method in "profile" class --------------------
   // profile pro = new profile();
   // pro.showProfile();
 
-  //this part is to try use method in "mathOperation" class
+  //this part is to try use method in "mathOperation" class --------------------
   // mathOperation mo = new mathOperation();
   // print("This is multiplication:");
   // mo.multiplication(20, 5);
@@ -62,6 +87,16 @@ void main() {
   //
   // print("\nThis is modulus: ");
   // mo.modulus(324, 20);
+
+
+class paramScope {
+  num checkDiscount(num price) {
+    num discount = 0;
+    if (price >= 100000) {
+      discount = 10 / 100 * price;
+    }
+    return discount;
+  }
 }
 
 class funcTest {
@@ -80,13 +115,38 @@ class funcTest {
   // void greeting(String name, bornYear) => print('Hello');
   // double averageTest(num number1, num number2) => (number1 + number2) / 2;
 
-  void greetNewUser(String name, int age, bool isVerified) {
-    print('\nHello $name! \nYou\'re $age years old');
-    if (isVerified == true) {
-      print('You\'re verified');
-    } else {
-    print ('You\'re not verified');
-  }}
+  // THE greetNewUser FUNCTION IS DOUBLE SO CHOOSE ONE TO USE
+  // DON'T USE IN THE SAME TIME TO PREVENT THE ERROR
+  // void greetNewUser(String name, int age, bool isVerified) {
+  //   print('\nHello $name! \nYou\'re $age years old');
+  //   if (isVerified == true) {
+  //     print('You\'re verified');
+  //   } else {
+  //     print('You\'re not verified');
+  //   }
+  // }
+
+  /* we also can use this way (OPTIONAL PARAMETER), in this case we're using
+     dart's null safety, null safety will make the variable by default can't
+     have null value (since version 2.12). So in order to the variable can have
+     the null value we can adding '?' after the data type in the function's parameter, below
+   * */
+  // void greetNewUser([String? name, int? age, bool? isVerified]) {
+  //   // but using this way, we've to pay attention to the order of parameter
+  //   print('Welcome $name!, $age years old, You\'re $isVerified');
+  // }
+
+  // by using this way we no longer need pay attention again to the order of parameter
+  // using '{' and '}' THIS WAY IS NAMED OPTIONAL PARAMETERS.
+  // uncomment if you want to use this part
+  // void greetNewUser({String? name, int? age, bool? isVerified}) {
+  //   print('Welcome $name!, $age years old, You\'re $isVerified');
+  // }
+
+  // we can add 'required' to mark the mandatory parameter
+  void greetNewUser({required String? name, int? age, bool? isVerified}) {
+    print('Welcome $name!, $age years old, You\'re $isVerified');
+  }
 }
 
 class conditionTest {
