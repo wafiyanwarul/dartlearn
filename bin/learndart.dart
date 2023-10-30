@@ -11,6 +11,18 @@ import 'dart:io';
 void main() {
   print("Hello World!");
 
+  //this part is to try use method in "funcTest" class
+  funcTest fT = new funcTest();
+  fT.greeting("Wafiy Anwarul Hikam", 2003);
+
+  var x1, x2;
+  x1 = 205;
+  x2 = 295;
+  var test = fT.averageTest(x1, x2);
+  print('The average of $x1 and $x2 is $test');
+
+  fT.greetNewUser('Anwarul Hikam', 19, false);
+
   //this part is to try use method in "convertTemperature" class, in file tempConvert
   // tempConvert.fahrenheitToCelcius();
   // tempConvert.celciusToFahrenheit();
@@ -52,7 +64,30 @@ void main() {
   // mo.modulus(324, 20);
 }
 
+class funcTest {
+  var name, age, bornYear;
 
+  void greeting(String name, bornYear) {
+    age = 2023 - bornYear;
+    print('Hello $name! This year you\'re $age years old');
+  }
+
+  double averageTest(num number1, num number2) {
+    return (number1 + number2) / 2;
+  }
+
+  // we also can use "arrow syntax" below (=>)
+  // void greeting(String name, bornYear) => print('Hello');
+  // double averageTest(num number1, num number2) => (number1 + number2) / 2;
+
+  void greetNewUser(String name, int age, bool isVerified) {
+    print('\nHello $name! \nYou\'re $age years old');
+    if (isVerified == true) {
+      print('You\'re verified');
+    } else {
+    print ('You\'re not verified');
+  }}
+}
 
 class conditionTest {
   void ifelseCondition() {
@@ -75,13 +110,14 @@ class conditionTest {
       b = 0;
       result = a ~/ b;
       print(result);
-    // } on Exception { // catch in general use
-    //   print("Don\'t use 0 to divide the number");
+      // } on Exception { // catch in general use
+      //   print("Don\'t use 0 to divide the number");
     } catch (e, s) {
       print("Exception happened: $e"); //show exception happened
       print("Stack trace: $s"); //show detail and where the exception happened
     } finally {
-      print("This sentence will still printed"); //still executed when the code error or not
+      print(
+          "This sentence will still printed"); //still executed when the code error or not
     }
   }
 }
@@ -181,7 +217,7 @@ class profile {
     address = stdin.readLineSync()!;
 
     fullProfile =
-        "\nHello $name \nYou're $age years old \nYour address is $address";
+    "\nHello $name \nYou're $age years old \nYour address is $address";
     print(fullProfile);
   }
 }
