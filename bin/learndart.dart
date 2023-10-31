@@ -1,5 +1,5 @@
 import 'package:learndart/learndart.dart' as learndart;
-import 'package:learndart/tempConvertion/tempConvert.dart' as tempConvert;
+import 'tempConvertion/tempConvert.dart' as tempConvert;
 import 'dart:io';
 
 /* this file
@@ -11,10 +11,23 @@ import 'dart:io';
 void main() {
   print("Hello World!");
 
+  // this part is to try use method in "quizDartFundamental" class --------------------
+  // quizDartFundamental qDF = new quizDartFundamental();
+  // qDF.quiz();
+
+  //this part is to try use method in "nullSafety" class --------------------
+  // nullSafety nS = new nullSafety();
+  // nS.buyAMeal(null);
+  //
+  // String? favoriteLunch = 'Hot Meat Soup';
+  // nS.buyALunch(favoriteLunch!);
+  // use bang operator '!' to return non-null value
+  // but we have to make sure that the return value is totally not null value to avoid the error
+
   //this part is to try use method in "consFinal" class --------------------
-  consFinal.consTest();
-  consFinal cF = new consFinal();
-  cF.finalTest();
+  // consFinal.consTest();
+  // consFinal cF = new consFinal();
+  // cF.finalTest();
 
   //this part is to try use method in "paramScope" class --------------------
   // var myParamScope = paramScope(); // Create an instance of the class
@@ -91,6 +104,42 @@ void main() {
   //
   // print("\nThis is modulus: ");
   // mo.modulus(324, 20);
+}
+
+class quizDartFundamental {
+  void quiz() {
+    try {
+      var stock = 0;
+      var milkNeeded = 25;
+
+      if (stock > milkNeeded) {
+        stock = stock - milkNeeded;
+        print('Processing your order...');
+      } else {
+        throw 'Out of Stock!';
+      }
+    } catch (e) {
+      print(e);
+    } finally {
+      print('Thank you');
+    }
+  }
+}
+
+class nullSafety {
+  // by using '?' in front of the data type will allow variable to have a null value
+  void buyAMeal(String? favoriteFood) {
+    if (favoriteFood == null) {
+      print('Bought Nasi Goreng');
+    } else {
+      // when the value isn't null
+      print('Bought $favoriteFood');
+    }
+  }
+
+  void buyALunch(String favoriteLunch) {
+    print('I bought a $favoriteLunch');
+  }
 }
 
 const num pi = 3.14; //this value can't be reassigned

@@ -2,12 +2,16 @@ import 'dart:io';
 
 void main() {
 
-  //this part is to try use method in "breakAndCont" class --------------------
-  breakAndCont bNc = new breakAndCont();
-  bNc.testPrimeNumber();
+  //this part is to try use method in "switchAndCase" class --------------------
+  switchAndCase swac = new switchAndCase();
+  swac.testSwitchCase();
 
-  print('');
-  bNc.continueTest();
+  //this part is to try use method in "breakAndCont" class --------------------
+  // breakAndCont bNc = new breakAndCont();
+  // bNc.testPrimeNumber();
+  //
+  // print('');
+  // bNc.continueTest();
 
   //this part is to try use method in "forLoopTest" class --------------------
   // forLoopTest loop = forLoopTest();
@@ -33,6 +37,43 @@ void main() {
   // ife.conditionalExpression();
   //
   // print(ife.testBuy());
+}
+
+class switchAndCase {
+  void testSwitchCase() {
+    final firstNumber = 21;
+    final secondNumber = 5;
+    final operator = "~/";
+
+    switch (operator) {
+      case '+':
+        print(
+            '$firstNumber $operator $secondNumber = ${firstNumber + secondNumber}');
+        break;
+      case '-':
+        print(
+            '$firstNumber $operator $secondNumber = ${firstNumber - secondNumber}');
+        break;
+      case '*':
+        print(
+            '$firstNumber $operator $secondNumber = ${firstNumber * secondNumber}');
+        break;
+      case '/':
+        print(
+            '$firstNumber $operator $secondNumber = ${firstNumber / secondNumber}');
+        break;
+      case '%':
+        print(
+            '$firstNumber $operator $secondNumber = ${firstNumber % secondNumber}');
+        break;
+      case '~/':
+        print(
+            '$firstNumber $operator $secondNumber = ${firstNumber ~/ secondNumber}');
+        break;
+      default:
+        print('Operator tidak ditemukan');
+    }
+  }
 }
 
 class breakAndCont {
