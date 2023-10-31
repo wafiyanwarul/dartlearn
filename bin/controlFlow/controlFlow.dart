@@ -1,10 +1,12 @@
 import 'dart:io';
 
 void main() {
+  quizFlowControl cek = new quizFlowControl();
+  cek.testQuiz1();
 
   //this part is to try use method in "switchAndCase" class --------------------
-  switchAndCase swac = new switchAndCase();
-  swac.testSwitchCase();
+  // switchAndCase swac = new switchAndCase();
+  // swac.testSwitchCase();
 
   //this part is to try use method in "breakAndCont" class --------------------
   // breakAndCont bNc = new breakAndCont();
@@ -37,6 +39,20 @@ void main() {
   // ife.conditionalExpression();
   //
   // print(ife.testBuy());
+}
+
+class quizFlowControl {
+  void testQuiz1() {
+    for (int i = 11; i < 20; i++) {
+      if (i % 11 == 0) {
+        continue;
+      }
+      stdout.write('$i ');
+      if (i % 5 == 0) {
+        break;
+      }
+    }
+  }
 }
 
 class switchAndCase {
