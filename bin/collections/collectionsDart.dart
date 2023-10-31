@@ -3,9 +3,48 @@ import 'dart:io';
 void main() {
   print('Hello Collections');
 
-  listCollection lc = listCollection();
-  lc.testList();
-  lc.spreadOperator();
+  //this part is to try use method in "setCollection" class --------------------
+  setCollection sc = new setCollection();
+  sc.testSet();
+  sc.testUnionAndIntersection();
+
+  //this part is to try use method in "listCollection" class --------------------
+  // listCollection lc = listCollection();
+  // lc.testList();
+  // lc.spreadOperator();
+}
+
+class setCollection {
+  void testSet() {
+    var numberSet = new Set.from([1, 4, 6, 4, 6, 2, 5, 10, 1, 2]);
+    // set will throw away the values that has duplicate values
+    print(
+        '\nWelcome to Set: set only can store a unique value (not dupclicate)');
+    print(numberSet);
+
+    print('\nHow to add data into the set: ');
+    numberSet.add(11);
+    numberSet.addAll({9, 7, 3});
+    print(numberSet);
+
+    print('\nHow to remove data in the set: ');
+    print(numberSet.remove(4));
+    print(numberSet);
+    print('');
+    print(numberSet.elementAt(2)); // elemen at index 2
+  }
+
+  void testUnionAndIntersection() {
+    var setA = {1, 2, 3, 4, 5, 7};
+    var setB = {1, 5, 7, 9, 11};
+
+    var union = setA.union(setB);
+    var intersection = setA.intersection(setB);
+
+    print("\nUnion = Gabungan & Intersection = Irisan");
+    print("union: $union");
+    print("intersection: $intersection");
+  }
 }
 
 class listCollection {
@@ -51,10 +90,12 @@ class listCollection {
     listSyrup.forEach((s) => print(s));
     listSyrup.add('JAMU TEMULAWAK'); // 'add' is to insert into last list
     print(listSyrup);
-    listSyrup.insert(1, 'SUSU JAHE'); // 'insert' is to insert into any index in list
+    listSyrup.insert(
+        1, 'SUSU JAHE'); // 'insert' is to insert into any index in list
     print(listSyrup);
     // how to change element list
-    listSyrup[2] = 'TEH ANGET'; // this line will change 'SIRUP MARJAN' to 'TEH ANGET'
+    listSyrup[2] =
+        'TEH ANGET'; // this line will change 'SIRUP MARJAN' to 'TEH ANGET'
     print(listSyrup);
 
     // remove specific list
@@ -85,7 +126,10 @@ class listCollection {
 
     // dynamic list
     List<dynamic>? list;
-    List<dynamic>? list2 = [0, ...?list]; // using null aware spread operation '...?'
+    List<dynamic>? list2 = [
+      0,
+      ...?list
+    ]; // using null aware spread operation '...?'
     print('');
     print(list2);
   }
