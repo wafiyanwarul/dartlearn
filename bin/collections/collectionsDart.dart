@@ -3,15 +3,62 @@ import 'dart:io';
 void main() {
   print('Hello Collections');
 
+  //this part is to try use method in "mapCollection" class --------------------
+  quizCollection qc = new quizCollection();
+  qc.testQuiz();
+
+  //this part is to try use method in "mapCollection" class --------------------
+  mapCollection mc = new mapCollection();
+  // mc.testMap();
+
   //this part is to try use method in "setCollection" class --------------------
   setCollection sc = new setCollection();
-  sc.testSet();
-  sc.testUnionAndIntersection();
+  // sc.testSet();
+  // sc.testUnionAndIntersection();
 
   //this part is to try use method in "listCollection" class --------------------
-  // listCollection lc = listCollection();
+  listCollection lc = listCollection();
   // lc.testList();
   // lc.spreadOperator();
+}
+
+class quizCollection {
+  void testQuiz() {
+    var capital = {
+      'Jakarta': 'Indonesia',
+      'London': 'England',
+      'Tokyo': 'Japan'
+    };
+    capital['New Delhi'] = 'India';
+
+    print(capital['Tokyo']);
+    print(capital['Indonesia']);
+  }
+}
+
+class mapCollection {
+  void testMap() {
+    // map using '{}' to store key-value
+    var capital = {
+      'Jakarta': 'Indonesia',
+      'London': 'England',
+      'Tokyo': 'Japan'
+    };
+    print(capital);
+    print(capital['London']);
+
+    // how to show the keys (using .keys)
+    var mapKeys = capital.keys;
+    print("\nmapKeys: $mapKeys");
+    // how to show the keys (using .values)
+    var mapValues = capital.values;
+    print("mapValues: $mapValues");
+
+    // how to add/insert key-value into the map
+    capital['New Delhi'] = 'India';
+
+    print('\n${capital['Tokyo']}');
+  }
 }
 
 class setCollection {
