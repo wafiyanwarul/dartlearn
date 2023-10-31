@@ -71,7 +71,7 @@ class switchAndCase {
             '$firstNumber $operator $secondNumber = ${firstNumber ~/ secondNumber}');
         break;
       default:
-        print('Operator tidak ditemukan');
+        print('Operator tidak ditemukan'); // will print when the operator not found
     }
   }
 }
